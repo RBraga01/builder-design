@@ -8,10 +8,9 @@ description: Use when designing how AI-generated content is rendered — streami
 ## The Law
 
 ```
-AI OUTPUT IS NOT STATIC CONTENT. IT CANNOT BE DESIGNED LIKE STATIC CONTENT.
-"Just render the markdown" produces a wall of text with no visual hierarchy.
-"The model formats it" puts formatting decisions in the model, not the UI.
-Defined rendering rules + typographic hierarchy + uncertainty signals IS output design.
+AI OUTPUT IS NOT STATIC CONTENT.
+"Just render the markdown" and "the model formats it" both ship walls of unstyled text with no hierarchy, no confidence signals, and no accessibility layer.
+Defined rendering rules + typographic hierarchy + confidence signals IS output design.
 ```
 
 ## When to Use
@@ -179,6 +178,8 @@ Confidence signals:
   Refusal / no-data: distinct grey treatment + alternative action ✓
 
 Progressive disclosure: responses > 800 words have section anchors ✓
+
+Documented in: design/specs/<feature>-output.md ✓
 ```
 
 ## Why This Matters

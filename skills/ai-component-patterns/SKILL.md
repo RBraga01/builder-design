@@ -9,10 +9,8 @@ description: Use when designing or implementing any of the 6 core AI UI componen
 
 ```
 AI UI COMPONENTS ARE NOT GENERIC UI COMPONENTS.
-A text input is not a prompt input.
-A text area is not a streaming output.
-Each of the 6 AI-native components has required sub-components and failure patterns
-that generic implementations miss. Using the right pattern IS the implementation.
+"A textarea works for prompt input" and "a div works for streaming" ship components missing required sub-components — no cursor, no stop button, no live region, no token counter.
+All required sub-components of all 6 AI-native patterns, fully implemented, IS an AI component.
 ```
 
 ## When to Use

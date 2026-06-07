@@ -9,9 +9,8 @@ description: Use before implementing any new AI feature UI component. Requires a
 
 ```
 CODE WRITTEN WITHOUT A SPEC IS ALWAYS A PROTOTYPE.
-"I'll design it as I build it" produces UI shaped by what was easy to code,
-not by what users need.
-A written shape with layout, states, copy, and interaction decisions IS a spec.
+"I'll design it as I build it" produces UI shaped by what was easy to code — not by what users need.
+A written layout, state definitions, final copy, and interaction map IS a spec.
 ```
 
 ## When to Use

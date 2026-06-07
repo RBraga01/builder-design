@@ -9,9 +9,8 @@ description: Use before any AI feature UI lands in production. Every colour, spa
 
 ```
 HARDCODED VALUES IN AI COMPONENTS ARE DESIGN SYSTEM DEBT.
-#3b82f6 in a component is not blue — it is a value that will diverge from the theme.
-"I'll align with the design system later" ships technical debt that compounds at every new component.
-All values referencing tokens IS a token-compliant component.
+"#3b82f6 is fine for now" is a value that diverges on the next rebrand and becomes the pattern every developer copies until there are 40 hardcoded blues in the codebase.
+Every colour, spacing, typography, shadow, and border radius referencing a token IS a token-compliant component.
 ```
 
 ## When to Use

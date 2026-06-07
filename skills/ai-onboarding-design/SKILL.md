@@ -9,8 +9,7 @@ description: Use when designing first-run flows and empty states for AI features
 
 ```
 AN AI FEATURE WITHOUT DESIGNED ONBOARDING FAILS ITS MOST IMPORTANT USERS FIRST.
-First-time users don't know what the model can do, what to ask, or whether to trust it.
-"They'll figure it out" loses users before they discover the feature's value.
+"They'll figure it out" is a blank input — users probe randomly, hit limits before they find value, and don't return.
 Capability communication + trust signals + first-win design IS AI onboarding.
 ```
 
@@ -176,8 +175,8 @@ Onboarding designed.
 Feature: <name>
 
 Capability communication:
-  Example prompts: <N> prompts, specific to domain, clickable ✓
-  Coverage: simple query / complex analysis / creative / edge case ✓
+  Example prompts: <N> prompts — written out (e.g. "Summarise this contract", "What are the key risks?")
+  Coverage: simple query ✓ / complex analysis ✓ / creative ✓ / edge of capability ✓
 
 Trust signals:
   Source attribution: visible from first response ✓
@@ -192,7 +191,7 @@ First win:
   Post-response suggestion: "Next, try..." ✓
 
 "Model doesn't know" state: designed with next-action options ✓
-Return visit: simplified empty state (no repeated capability education) ✓
+Return visit: simplified empty state — trigger chosen: <first response received / explicit "got it" / session count N> ✓
 ```
 
 ## Why This Matters

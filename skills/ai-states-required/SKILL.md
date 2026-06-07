@@ -117,14 +117,14 @@ Feature: <name>
 Touchpoints covered: <N>
 State map: design/ai-states/<feature>.md ✓
 
-All 7 states documented for each touchpoint:
-  Loading: <visual treatment + copy> ✓
-  Streaming: <visual treatment + copy> ✓
-  Success: <visual treatment + copy> ✓
-  Error: <visual treatment + copy + recovery action> ✓
-  Partial: <treatment + continuation option> ✓
-  Uncertain: <confidence signal + citation path> ✓
-  Empty: <prompt guidance + examples> ✓
+All 7 states documented for each touchpoint (must match state map file — no vague descriptions):
+  Loading: <named element: skeleton/spinner/pulse + exact copy text> ✓
+  Streaming: <cursor type + exact copy text> ✓
+  Success: <actions listed: Copy / Retry / 👍 👎 + copy text if any> ✓
+  Error: <border colour + icon + exact error copy + recovery action label> ✓
+  Partial: <dashed/truncated indicator + exact copy + continuation action label> ✓
+  Uncertain: <amber bar / ⚠ badge + exact verify copy + next-action label> ✓
+  Empty: <illustration type + exact heading copy + N example prompts listed> ✓
 
 Edge cases reviewed: stream interruption, empty response, duplicate submit ✓
 ```

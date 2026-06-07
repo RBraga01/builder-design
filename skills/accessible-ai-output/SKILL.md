@@ -153,6 +153,7 @@ Cognitive load checklist:
   Reduced motion: streaming animation alternative ✓
 
 Screen reader test: VoiceOver / NVDA — streaming announced correctly ✓
+Accessibility review stored: design/reviews/<feature>/<date>-accessibility.md ✓
 ```
 
 ## Why This Matters

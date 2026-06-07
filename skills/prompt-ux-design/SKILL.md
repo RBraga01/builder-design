@@ -9,9 +9,8 @@ description: Use when designing the user-facing prompt experience for any AI fea
 
 ```
 THE PROMPT INPUT IS THE PRODUCT INTERFACE FOR AN AI FEATURE.
-"It's just a text box" treats the primary interaction surface as an afterthought.
-A blank textarea with a send button is not a prompt UX — it is a terminal.
-Input design + suggestion system + history + feedback signals IS a prompt UX.
+"It's just a text box" ships an input with no suggestions, no state feedback, and no token limit — users probe the model by trial and error until they give up.
+Input design + suggestion system + 6-state feedback loop + constraints IS a prompt UX.
 ```
 
 ## When to Use
@@ -129,7 +128,9 @@ Prompt UX designed.
 Input pattern: <single-line / multi-line / conversational / command>
 Reason: <one sentence>
 
-Suggestion system: <example prompts: N / autocomplete: yes/no / refinements: yes/no>
+Suggestion system:
+  Example prompts: N — written out (e.g. "Summarise this contract", "What are the key risks?")
+  Autocomplete: yes/no / Refinements: yes/no / Slash commands: yes/no
 History: <thread display / context limit indicator / clear button>
 Feedback loop: idle → typing → submitted → streaming → complete → feedback (all states mapped ✓)
 Constraints: token limit=N (counter at 80%) / validation rules / rate limit UX ✓
