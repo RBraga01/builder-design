@@ -1,0 +1,105 @@
+name: Fork Welcome
+
+on:
+  fork:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "GitHub username of the forker (for manual test)"
+        required: true
+
+permissions:
+  issues: write
+  contents: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Determine forker username
+        id: forker
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "username=${{ github.event.inputs.username }}" >> $GITHUB_OUTPUT
+          else
+            echo "username=${{ github.event.forkee.owner.login }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if forker has starred
+        id: star
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          USERNAME="${{ steps.forker.outputs.username }}"
+          STATUS=$(gh api "/repos/${{ github.repository }}/stargazers" \
+            --paginate --jq ".[].login" 2>/dev/null \
+            | grep -c "^${USERNAME}$" || echo "0")
+          echo "starred=$STATUS" >> $GITHUB_OUTPUT
+
+      - name: Create and close welcome issue
+        id: issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          USERNAME="${{ steps.forker.outputs.username }}"
+          STARRED="${{ steps.star.outputs.starred }}"
+
+          if [ "$STARRED" = "0" ]; then
+            STAR_LINE="If builder-design is useful, a ⭐ helps others find it."
+          else
+            STAR_LINE="Thanks for the ⭐ — glad it's useful."
+          fi
+
+          ISSUE_URL=$(gh issue create \
+            --title "Welcome @${USERNAME}" \
+            --label "community" \
+            --body "Hi @${USERNAME} — thanks for forking builder-design.
+
+The two skills most teams reach for first:
+- \`ai-states-required\` — run before any AI component code is written
+- \`design-token-audit\` — run before any AI UI merges
+
+Both require filling in a real Completion Statement Format. There is no 'looks good' path.
+
+${STAR_LINE}
+
+If you hit a pattern that's missing, open a Feature Request — include a draft The Law section.")
+
+          ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -o '[0-9]*$')
+          echo "number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
+
+      - name: Close welcome issue immediately
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close ${{ steps.issue.outputs.number }} \
+            --reason completed
+
+      - name: Update forks registry
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          USERNAME="${{ steps.forker.outputs.username }}"
+          TODAY=$(date -u +%Y-%m-%d)
+          REPO="${{ github.repository }}"
+
+          # Fetch current registry
+          FILE_DATA=$(gh api "repos/${REPO}/contents/.github/forks-registry.json" --jq '.')
+          CURRENT_CONTENT=$(echo "$FILE_DATA" | jq -r '.content' | base64 -d)
+          FILE_SHA=$(echo "$FILE_DATA" | jq -r '.sha')
+
+          # Add new entry
+          UPDATED=$(echo "$CURRENT_CONTENT" | jq \
+            --arg user "$USERNAME" \
+            --arg date "$TODAY" \
+            '. + [{"username": $user, "forked_at": $date, "followup_sent": false}]')
+
+          # Encode and update
+          ENCODED=$(echo "$UPDATED" | base64 -w 0)
+          gh api "repos/${REPO}/contents/.github/forks-registry.json" \
+            --method PUT \
+            --field message="chore: register fork by ${USERNAME}" \
+            --field content="${ENCODED}" \
+            --field sha="${FILE_SHA}"

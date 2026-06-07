@@ -1,0 +1,16 @@
+skill:
+  - skills/**
+
+agent:
+  - .claude/agents/**
+
+infrastructure:
+  - install.sh
+  - install.ps1
+  - scripts/**
+  - .github/**
+
+documentation:
+  - "*.md"
+  - "!skills/**"
+  - "!.claude/**"

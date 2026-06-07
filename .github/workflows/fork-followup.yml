@@ -1,0 +1,79 @@
+name: Fork Follow-up
+
+on:
+  schedule:
+    - cron: "0 9 * * 2"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: write
+
+jobs:
+  followup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send follow-ups to eligible forks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${{ github.repository }}"
+          TODAY=$(date -u +%s)
+          THRESHOLD_DAYS=30
+
+          # Fetch registry
+          FILE_DATA=$(gh api "repos/${REPO}/contents/.github/forks-registry.json" --jq '.')
+          CURRENT_CONTENT=$(echo "$FILE_DATA" | jq -r '.content' | base64 -d)
+          FILE_SHA=$(echo "$FILE_DATA" | jq -r '.sha')
+
+          UPDATED="$CURRENT_CONTENT"
+          SENT=0
+
+          while IFS= read -r entry; do
+            USERNAME=$(echo "$entry" | jq -r '.username')
+            FORKED_AT=$(echo "$entry" | jq -r '.forked_at')
+            FOLLOWUP_SENT=$(echo "$entry" | jq -r '.followup_sent')
+
+            if [ "$FOLLOWUP_SENT" = "true" ]; then
+              continue
+            fi
+
+            FORK_EPOCH=$(date -d "$FORKED_AT" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$FORKED_AT" +%s)
+            DAYS_SINCE=$(( (TODAY - FORK_EPOCH) / 86400 ))
+
+            if [ "$DAYS_SINCE" -ge "$THRESHOLD_DAYS" ]; then
+              ISSUE_URL=$(gh issue create \
+                --repo "${REPO}" \
+                --title "How is builder-design working for you, @${USERNAME}?" \
+                --label "community" \
+                --body "Hi @${USERNAME} — it has been about a month since you forked builder-design.
+
+Curious: did the hard gates catch anything? Did \`ai-states-required\` or \`design-token-audit\` block something that would have shipped?
+
+If a pattern is missing or a skill needs updating, open an issue — the pack improves from real use.") || true
+
+              if [ -n "$ISSUE_URL" ]; then
+                ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -o '[0-9]*$')
+                gh issue close "$ISSUE_NUMBER" --reason completed || true
+                SENT=$((SENT + 1))
+
+                # Mark followup_sent in registry
+                UPDATED=$(echo "$UPDATED" | jq \
+                  --arg user "$USERNAME" \
+                  'map(if .username == $user then .followup_sent = true else . end)')
+              fi
+            fi
+          done < <(echo "$CURRENT_CONTENT" | jq -c '.[]')
+
+          echo "Follow-ups sent: $SENT"
+
+          if [ "$SENT" -gt 0 ]; then
+            ENCODED=$(echo "$UPDATED" | base64 -w 0)
+            gh api "repos/${REPO}/contents/.github/forks-registry.json" \
+              --method PUT \
+              --field message="chore: mark follow-ups sent" \
+              --field content="${ENCODED}" \
+              --field sha="${FILE_SHA}"
+          fi

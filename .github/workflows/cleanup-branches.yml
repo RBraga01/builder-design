@@ -1,0 +1,31 @@
+name: Cleanup Merged Branches
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Delete merged branches
+        run: |
+          git fetch --prune
+          MERGED=$(git branch -r --merged origin/main \
+            | grep -v 'origin/main' \
+            | grep -v 'origin/HEAD' \
+            | sed 's|origin/||')
+          if [ -z "$MERGED" ]; then
+            echo "No merged branches to delete."
+          else
+            echo "$MERGED" | xargs -I{} git push origin --delete {} || true
+            echo "Deleted: $MERGED"
+          fi

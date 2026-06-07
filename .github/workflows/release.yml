@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify consistency before release
+        run: python scripts/check_consistency.py
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          body: |
+            See [CHANGELOG.md](https://github.com/RBraga01/builder-design/blob/main/CHANGELOG.md) for details.
+
+            **Install:**
+            ```bash
+            curl -fsSL https://raw.githubusercontent.com/RBraga01/builder-design/${{ github.ref_name }}/install.sh | bash
+            ```
