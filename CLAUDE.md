@@ -40,7 +40,8 @@ Every skill's Completion Statement Format must be filled with real values:
 - State maps: `design/ai-states/<feature>.md`
 - Component specs: `design/specs/<feature>.md`
 - Prompt UX specs: `design/specs/<feature>-prompt-ux.md`
-- Safety/accessibility reviews: `design/reviews/<feature>/<date>.md`
+- UX critiques: `design/reviews/<feature>/<date>-ux-critique.md`
+- Accessibility reviews: `design/reviews/<feature>/<date>-accessibility.md`
 
 ## Quality Bar
 

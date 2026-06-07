@@ -99,12 +99,15 @@ DOM order must match the visual reading order. AI interfaces commonly break this
 - Don't flag contrast issues without a specific ratio and WCAG criterion.
 - Don't produce a list of optional improvements. Your output distinguishes BLOCK from NOTE.
 
-## Output Format
+## Output
+
+Write your review to `design/reviews/<feature>/<date>-accessibility.md` and confirm the path in chat.
 
 ```
 Accessibility Review: <feature name>
 Reviewer: accessibility-reviewer
 Date: <date>
+Report: design/reviews/<feature>/<date>-accessibility.md
 
 ARIA LIVE REGIONS — <PASS / WARN / BLOCK>
   [Finding with file:line reference]

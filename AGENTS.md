@@ -23,16 +23,9 @@
 
 **Use when:** Any AI feature UI is drafted and before it ships.
 
-**Output format:**
-```
-UX Critique: <feature>
-STATES — PASS / WARN / BLOCK
-SPEC — PASS / WARN / BLOCK
-COMPONENTS — PASS / WARN / BLOCK
-PROMPT UX — PASS / WARN / BLOCK
-TOKEN COMPLIANCE — PASS / WARN / BLOCK
-Overall: PASS / CONDITIONAL / BLOCK
-```
+**Output:** `design/reviews/<feature>/<date>-ux-critique.md`
+
+**Verdict format:** STATES / SPEC / COMPONENTS / PROMPT UX / TOKEN COMPLIANCE — each PASS / WARN / BLOCK. Overall: PASS / CONDITIONAL / BLOCK.
 
 **Does not:** Produce suggestions. Issues are BLOCK, WARN, or NOTE.
 
@@ -68,15 +61,8 @@ Overall: PASS / CONDITIONAL / BLOCK
 
 **Use when:** Before any AI feature UI ships.
 
-**Output format:**
-```
-Accessibility Review: <feature>
-ARIA LIVE REGIONS — PASS / WARN / BLOCK
-READING ORDER — PASS / WARN / BLOCK
-COGNITIVE LOAD — PASS / WARN / BLOCK
-KEYBOARD NAVIGATION — PASS / WARN / BLOCK
-COLOUR AND CONTRAST — PASS / WARN / BLOCK
-Overall: PASS / CONDITIONAL / BLOCK
-```
+**Output:** `design/reviews/<feature>/<date>-accessibility.md`
+
+**Verdict format:** 5 areas — each PASS / WARN / BLOCK. Overall: PASS / CONDITIONAL / BLOCK.
 
 **Does not:** Approve streaming output without `role="log" aria-live="polite" aria-atomic="false"`.

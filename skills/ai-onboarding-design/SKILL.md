@@ -128,6 +128,36 @@ You could try:
 - Always offer a next action
 - If the topic is outside the model's scope, say so explicitly (not "I couldn't find that")
 
+## The Process
+
+### Step 1 — Define the First Win
+
+Before designing any UI, answer: what is the simplest, highest-value thing a first-time user can do with this feature? Everything else — the empty state, the example prompts, the first response — is designed to deliver that win.
+
+### Step 2 — Write the Capability Boundary
+
+One sentence: "I answer questions about [X]. I don't [Y]." This goes in the empty state and in the first response. Write it before designing any UI — it defines the scope that every example prompt must stay within.
+
+### Step 3 — Design the Empty State
+
+4–6 example prompts, all specific, all clickable, all within the capability boundary. Write the actual prompt text. "What are the key risks in this contract?" is a prompt. "Ask me something" is not.
+
+### Step 4 — Design the First Response
+
+The first response to the most likely example prompt should be designed — not left entirely to the model. Know what a showcase response looks like for this feature. If the model's actual first response would undermine trust, this is a product design problem to solve now, not after launch.
+
+### Step 5 — Design the Trust Signals
+
+Four required: source attribution visible from the first response, capability boundary stated, data handling disclosed, uncertainty disclosure present. Check all four.
+
+### Step 6 — Design the "Model Doesn't Know" State
+
+Write the copy for when the model can't answer. "I don't have information about [topic] in [source]." + at least one next action. Never leave the user at a dead end.
+
+### Step 7 — Define the Return Visit Simplification
+
+After the first successful interaction, what changes? The capability education in the empty state should be simplified or removed for returning users. Define the trigger (first response received, explicit "got it", session count) and the simplified state.
+
 ## Rationalization Red Flags
 
 These thoughts mean onboarding was not designed — stop:

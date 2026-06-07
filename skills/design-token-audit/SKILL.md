@@ -158,17 +158,25 @@ When design-token-audit is satisfied, state it like this:
 
 ```
 Token audit complete.
-Components audited: <N>
+Components audited: <N> — <list: ComponentName, ComponentName>
+Token file: <path to token/variables file where AI tokens are defined>
 
 Hardcoded values found: <N>
   Mapped to existing tokens: <N>
-  New tokens defined: <N> — <list: --color-ai-response-bg, etc.>
-  Documented exceptions: <N> (e.g. transition durations)
+  New tokens defined: <N> — <list: --color-ai-response-bg, --color-ai-uncertain, etc.>
+  Documented exceptions: <N> (e.g. transition durations, 0 exceptions)
 
 All 5 categories compliant:
   Colour ✓  |  Spacing ✓  |  Typography ✓  |  Shadow ✓  |  Border radius ✓
 
-Dark mode / theming: AI-specific tokens verified in both modes ✓
+AI-specific tokens:
+  --color-ai-response-bg: defined ✓ / not needed ✓
+  --color-ai-streaming:   defined ✓ / not needed ✓
+  --color-ai-uncertain:   defined ✓ / not needed ✓
+  --color-ai-citation:    defined ✓ / not needed ✓
+  --color-ai-error:       defined ✓ / not needed ✓
+
+Dark mode: AI-specific tokens verified in light and dark ✓
 Zero hardcoded values remaining ✓
 ```
 

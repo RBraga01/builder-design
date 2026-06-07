@@ -54,12 +54,15 @@ You run a structured audit against 5 skill areas. For each area, you produce a P
 - Don't audit what was not provided. If the spec file doesn't exist, the verdict for that area is BLOCK.
 - Don't approve work that hasn't satisfied the completion statement format from each relevant skill.
 
-## Output Format
+## Output
+
+Write your critique to `design/reviews/<feature>/<date>-ux-critique.md` and confirm the path in chat.
 
 ```
 UX Critique: <feature name>
 Audited by: ux-critic
 Date: <date>
+Report: design/reviews/<feature>/<date>-ux-critique.md
 
 STATES — <PASS / WARN / BLOCK>
   [Finding: <specific issue with file:line reference>]

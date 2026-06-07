@@ -126,6 +126,28 @@ AI responses have no natural length limit. Design for length:
 - "Show more" for lists over 10 items
 - Responses over 1500 words: sticky summary bar ("Reading: Section 2 of 4")
 
+## The Process
+
+### Step 1 — Define the Markdown Rendering Rules
+
+Create an explicit list of which markdown elements your surface renders and how. Use the table in Section 1 as your starting point. Any element not listed is undefined behaviour in production.
+
+### Step 2 — Apply the Typographic Hierarchy
+
+Add the CSS in Section 2 (or its equivalent in your stack) to the response container. Line height `1.7` and `max-width: 72ch` are not optional — long AI responses with tight line height and full-width layout are measurably harder to read.
+
+### Step 3 — Implement Structured Data Rendering
+
+For tables: `role="region"` + `tabindex="0"` on the scroll wrapper, `<caption>` required. For long lists: define the expand threshold (default: 10 items).
+
+### Step 4 — Add Confidence Signals
+
+Implement the post-processing step that detects hedging language and applies the amber treatment. A regex over `["I think", "I'm not certain", "approximately", "I believe", "may", "might"]` in the response text is a minimum viable implementation.
+
+### Step 5 — Verify Progressive Disclosure Thresholds
+
+Test with a response over 800 words (section anchor links), a code block over 50 lines (collapsible), and a list over 10 items (expand). If your rendering system doesn't handle these, they ship as walls of content.
+
 ## Rationalization Red Flags
 
 These thoughts mean output design was skipped — stop:

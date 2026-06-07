@@ -22,9 +22,10 @@ def extract_version_changelog(path: Path) -> str | None:
     return m.group(1) if m else None
 
 def extract_version_file(path: Path, label: str) -> str | None:
-    """Return version from 'label vX.Y.Z' pattern."""
+    """Return version from a line containing 'label ... vX.Y.Z'."""
     text = path.read_text(encoding="utf-8")
-    m = re.search(rf"{re.escape(label)}\s+v(\d+\.\d+\.\d+)", text)
+    # Match label anywhere on a line, followed later on the same line by vX.Y.Z
+    m = re.search(rf"{re.escape(label)}[^\n]*v(\d+\.\d+\.\d+)", text)
     return m.group(1) if m else None
 
 def count_skills() -> int:

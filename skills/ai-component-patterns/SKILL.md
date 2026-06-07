@@ -15,6 +15,38 @@ Each of the 6 AI-native components has required sub-components and failure patte
 that generic implementations miss. Using the right pattern IS the implementation.
 ```
 
+## When to Use
+
+Trigger when:
+- Building any new AI feature UI component from scratch
+- Auditing an existing component before it ships
+- Replacing a generic component (textarea, div) that is being used as an AI-native one
+- Reviewing a PR that introduces chat, streaming output, citations, agent logs, or prompt input
+
+## When NOT to Use
+
+- Components that display only static, pre-rendered content (no model calls, no streaming)
+- Internal admin tools where the audience is developers who understand the system's raw state
+- Non-interactive AI outputs consumed by the system, not displayed to users
+
+## The Process
+
+### Step 1 — Identify the Component Type
+
+From the 6 types below, identify which AI-native components this feature requires. A chat interface may need: Prompt Input + Streaming Output + Citation Display + Empty State. An agent view may need: Agent Action Log + Uncertainty Indicator + Streaming Output.
+
+### Step 2 — Check Each Required Element
+
+For every component identified, use the Required Elements checklist as a review gate. A component is not done until every required element is present. Not most. Every.
+
+### Step 3 — Fix Pitfalls Before Ship
+
+Each component has a Pitfalls list. These are the most common production failures. Check each pitfall explicitly — don't rely on "I didn't do that."
+
+### Step 4 — Complete the Completion Statement
+
+Produce the Completion Statement Format below. Filling in real component names and real checkboxes is the test. Vague statements ("all components done") cannot satisfy it.
+
 ## The 6 AI-Native Components
 
 ### 1 — Prompt Input
