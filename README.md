@@ -103,7 +103,7 @@ cp -r skills/ .claude/agents/ your-project/
 # Installs alongside A Team's 25 agents and 18 workflow skills
 ```
 
-If you use [A Team](https://github.com/RBraga01/a-team), builder-design adds the AI design enforcement layer that the engineering team doesn't cover.
+Works alongside [A Team](https://github.com/RBraga01/a-team), [builder-ai](https://github.com/RBraga01/builder-ai), [builder-product](https://github.com/RBraga01/builder-product), and [builder-growth](https://github.com/RBraga01/builder-growth). Each pack is independent — use one, some, or all.
 
 ---
 

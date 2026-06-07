@@ -359,7 +359,7 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 }
 
 /* ── ECOSYSTEM ── */
-.eco-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.eco-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
 .eco-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:24px; text-decoration:none;
@@ -736,7 +736,7 @@ footer a:hover { color:var(--text); }
   <p class="section-sub">All packs work standalone. All share the same enforcement model. Use one, some, or all.</p>
 
   <div class="eco-grid">
-    <a class="eco-card reveal" href="https://github.com/RBraga01/a-team" target="_blank" rel="noopener">
+    <a class="eco-card reveal" href="https://rbraga01.github.io/a-team/" target="_blank" rel="noopener">
       <div class="eco-card-eyebrow">Foundation</div>
       <h3>A Team</h3>
       <p>25 pre-configured engineering specialists, 18 workflow skills, a lead orchestrator, and a Pipeline Auditor. The base layer.</p>
@@ -750,6 +750,16 @@ footer a:hover { color:var(--text); }
       <div class="eco-card-eyebrow">AI Engineering</div>
       <h3>builder-ai</h3>
       <p>Eval, prompt versioning, fallback design, RAG pipelines, safety review. Three hard gates that block ship.</p>
+    </a>
+    <a class="eco-card reveal" href="https://rbraga01.github.io/builder-product/" target="_blank" rel="noopener">
+      <div class="eco-card-eyebrow">Product</div>
+      <h3>builder-product</h3>
+      <p>Product quality gates. PRD, feature scoping, metric definition, research synthesis, A/B test design, AI feature validation.</p>
+    </a>
+    <a class="eco-card reveal" href="https://rbraga01.github.io/builder-growth/" target="_blank" rel="noopener">
+      <div class="eco-card-eyebrow">Growth</div>
+      <h3>builder-growth</h3>
+      <p>Growth quality gates. Positioning, copy, funnel analysis, experiments, retention design, AI messaging review.</p>
     </a>
   </div>
 </section>
