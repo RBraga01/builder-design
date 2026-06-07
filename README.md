@@ -105,18 +105,6 @@ cp -r skills/ .claude/agents/ your-project/
 
 If you use [A Team](https://github.com/RBraga01/a-team), builder-design adds the AI design enforcement layer that the engineering team doesn't cover.
 
-## Why Not Just Use Impeccable?
-
-[Impeccable](https://github.com/pbakaus/impeccable) covers general frontend design quality well — typography, spacing, colour, motion. builder-design covers the AI-specific layer that impeccable doesn't:
-
-- **Streaming UI** — visual affordances for token-by-token generation
-- **7 AI-specific states** — including Uncertain and Partial Success, which don't exist in static UIs
-- **Prompt UX** — the interaction model between user intent and model execution
-- **Dynamic content accessibility** — ARIA live regions, `aria-atomic`, screen reader behaviour during streaming
-- **AI-specific design tokens** — `--color-ai-response-bg`, `--color-ai-uncertain`, etc.
-
-Use impeccable for typography and visual polish. Use builder-design to make sure your AI feature UI is actually designed for AI.
-
 ---
 
 MIT License — Ricardo Romão Marques Braga
