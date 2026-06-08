@@ -1,16 +1,24 @@
 skill:
-  - skills/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - "skills/**"
 
 agent:
-  - .claude/agents/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".claude/agents/**"
 
 infrastructure:
-  - install.sh
-  - install.ps1
-  - scripts/**
-  - .github/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - "install.sh"
+      - "install.ps1"
+      - "scripts/**"
+      - ".github/**"
 
 documentation:
-  - "*.md"
-  - "!skills/**"
-  - "!.claude/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "*.md"
+      - "!skills/**"
+      - "!.claude/**"
