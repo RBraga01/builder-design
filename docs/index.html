@@ -421,8 +421,8 @@ footer a:hover { color:var(--text); }
       <span class="hero-eyebrow-dot"></span>
       AI UI Design Skills Pack
     </div>
-    <h1>Your AI feature has<br>no designed states.<br><span class="grad">This pack fixes that.</span></h1>
-    <p class="hero-sub">8 skills and 5 agents that enforce design quality for AI-specific UIs — streaming output, all 7 states, prompt UX, accessibility, and design tokens. The layer general design systems don't cover.</p>
+    <h1>You designed what the feature does.<br>Not what it looks like when it fails.<br><span class="grad">This pack designs that too.</span></h1>
+    <p class="hero-sub">Drop one folder into your project. Claude Code now must plan what every AI feature looks like before writing code — what shows while it's loading, what shows when something goes wrong, how someone using a screen reader experiences it, and how the design matches your other components.</p>
     <div class="hero-ctas">
       <a class="btn-primary" href="#install">Install in 30 seconds</a>
       <a class="btn-secondary" href="https://github.com/RBraga01/builder-design" target="_blank" rel="noopener">
@@ -457,7 +457,7 @@ footer a:hover { color:var(--text); }
 <section class="section reveal">
   <div class="section-tag">What general design systems miss</div>
   <h2>Six gaps in every AI feature UI</h2>
-  <p class="section-sub">General design systems handle typography, spacing, and colour. They were not built for AI. Streaming, states, ARIA live regions, prompt UX, and AI-specific tokens are outside their scope entirely.</p>
+  <p class="section-sub">Your design system handles fonts, spacing, and colours. It has no rules for AI. What shows while the AI is thinking? What if someone using a screen reader can't hear the response arrive? What does the input box actually need? None of that is covered.</p>
 
   <div class="gaps-grid">
     <div class="gap-card g-purple reveal">
@@ -475,7 +475,7 @@ footer a:hover { color:var(--text); }
     <div class="gap-card g-amber reveal">
       <div class="gap-label">Accessibility</div>
       <h3>Screen readers hear nothing during streaming</h3>
-      <p>Tokens injected into the DOM without <code style="font-size:.78rem">aria-live="polite"</code> are silent to assistive technology. The streaming cursor needs <code style="font-size:.78rem">aria-hidden="true"</code> or it announces on every token.</p>
+      <p>The AI response arrives word by word. Without the right setup, a screen reader hears nothing. The blinking cursor announces itself on every word unless you explicitly hide it from assistive technology.</p>
       <div class="gap-skill">→ accessible-ai-output</div>
     </div>
     <div class="gap-card g-blue reveal">
@@ -505,7 +505,7 @@ footer a:hover { color:var(--text); }
 <section class="section reveal">
   <div class="section-tag">What correct looks like</div>
   <h2>Streaming output, designed</h2>
-  <p class="section-sub">The difference between a streaming container that works and one that doesn't is three attributes and a cursor. builder-design makes sure they're always there.</p>
+  <p class="section-sub">The difference between streaming output that works for everyone and one that doesn't is three settings and a cursor. This pack makes sure they're always there.</p>
 
   <div class="demo-block reveal">
     <div class="demo-header">
@@ -537,49 +537,49 @@ footer a:hover { color:var(--text); }
 
 <!-- ── SKILLS ── -->
 <section class="section reveal">
-  <div class="section-tag">The 8 Skills</div>
-  <h2>One skill per design gap</h2>
-  <p class="section-sub">Pre-implementation gates block implementation before design exists. Pre-ship gates block merge until design is verified.</p>
+  <div class="section-tag">The 8 Rules</div>
+  <h2>One rule per design gap</h2>
+  <p class="section-sub">Two rules require design work before any code is written. Three rules verify everything is correct before the feature ships.</p>
 
   <div class="skills-list">
     <div class="skill-row reveal">
       <span class="skill-name">ai-states-required</span>
-      <span class="skill-desc">All 7 states (Loading, Streaming, Success, Error, Partial, Uncertain, Empty) documented before any component code</span>
+      <span class="skill-desc">All 7 visual states — loading, responding, done, failed, cut off, uncertain, empty — designed with real copy before any code is written</span>
       <span class="skill-gate gate-pre">Before Code</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">design-before-code</span>
-      <span class="skill-desc">Spec first — layout, states, copy, interactions — at <code style="font-size:.78rem">design/specs/&lt;feature&gt;.md</code> before implementation begins</span>
+      <span class="skill-desc">Written plan covering layout, all visual states, the copy, and how interactions work — saved to a real file — before any code is written</span>
       <span class="skill-gate gate-pre">Before Code</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">accessible-ai-output</span>
-      <span class="skill-desc">ARIA live regions, DOM reading order, cognitive load review — 20 minutes before ship, not a week of retrofitting after</span>
+      <span class="skill-desc">Screen reader announcements, tab order, and readability — checked in 20 minutes before ship, not a week of fixes after</span>
       <span class="skill-gate gate-ship">Before Ship</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">ai-component-patterns</span>
-      <span class="skill-desc">6 AI-native components — Prompt Input, Streaming Output, Citation Display, Agent Log, Uncertainty Indicator, Empty State — with required sub-components</span>
+      <span class="skill-desc">6 parts every AI feature needs — the input area, the streaming response, source links, activity log, confidence signals, and what to show when there's nothing yet — each with required elements</span>
       <span class="skill-gate gate-ship">Before Ship</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">prompt-ux-design</span>
-      <span class="skill-desc">Input pattern, suggestion system, 6-state feedback loop, history, token limits — not "just a text box"</span>
+      <span class="skill-desc">How the input grows as you type, what suggestions appear, how the visual feedback changes from waiting to sending to receiving to done — not just a fixed-height text box</span>
       <span class="skill-gate gate-pre">Before Code</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">ai-output-design</span>
-      <span class="skill-desc">11 markdown elements, typographic hierarchy, confidence signals, progressive disclosure — defined rendering rules, not "just render the markdown"</span>
+      <span class="skill-desc">How headers, lists, code, and 8 other text elements look, how confident vs uncertain responses appear different, how very long outputs are handled — designed before coding begins</span>
       <span class="skill-gate gate-pre">Before Code</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">ai-onboarding-design</span>
-      <span class="skill-desc">First win, capability communication, trust signals, showcase first response, "model doesn't know" state — not a blank input</span>
+      <span class="skill-desc">What new users see, what they should try first, what happens when the AI can't answer — not just an empty text box waiting</span>
       <span class="skill-gate gate-pre">Before Code</span>
     </div>
     <div class="skill-row reveal">
       <span class="skill-name">design-token-audit</span>
-      <span class="skill-desc">5 token categories, 5 AI-specific tokens, dark mode verification — zero hardcoded values before merge</span>
+      <span class="skill-desc">All colours, spacing, and sizes reference shared design values — not hardcoded anywhere. Changing the theme means updating three values, not editing 40 files.</span>
       <span class="skill-gate gate-ship">Before Ship</span>
     </div>
   </div>
@@ -589,9 +589,9 @@ footer a:hover { color:var(--text); }
 
 <!-- ── ENFORCEMENT PROOF ── -->
 <section class="section reveal">
-  <div class="section-tag">How enforcement works</div>
-  <h2>A format that cannot be faked</h2>
-  <p class="section-sub">Each skill has a Completion Statement Format that must be filled with real values. An agent cannot claim all 7 states are designed without showing a state map at a real file path.</p>
+  <div class="section-tag">How it works</div>
+  <h2>Claude must produce real proof — not just say it's done</h2>
+  <p class="section-sub">Each rule requires a specific output with real values. Claude cannot say 'all states are designed' without showing a file where all 7 states are actually written out.</p>
 
   <div class="proof-block reveal">
     <div class="proof-header">
@@ -626,7 +626,7 @@ footer a:hover { color:var(--text); }
   </div>
 
   <p style="margin-top:20px; font-size:.85rem; color:var(--muted); text-align:center;">
-    An agent that skipped the state design cannot produce <code style="color:var(--cyan); background:rgba(6,182,212,.08); padding:2px 6px; border-radius:4px;">design/ai-states/document-assistant.md ✓</code><br>with real copy for all 7 states. That is the enforcement.
+    Claude cannot write <code style="color:var(--cyan); background:rgba(6,182,212,.08); padding:2px 6px; border-radius:4px;">design/ai-states/document-assistant.md ✓</code><br>with real copy for all 7 states without actually doing the state design. That is the enforcement.
   </p>
 </section>
 
@@ -634,35 +634,35 @@ footer a:hover { color:var(--text); }
 
 <!-- ── AGENTS ── -->
 <section class="section reveal">
-  <div class="section-tag">The 5 Agents</div>
-  <h2>Specialists in AI UI design</h2>
-  <p class="section-sub">Each agent covers one domain. Reviewers produce BLOCK / WARN / NOTE verdicts and write reports to files — not summaries in chat.</p>
+  <div class="section-tag">The 5 Specialists</div>
+  <h2>Five AI roles Claude can take on</h2>
+  <p class="section-sub">Each specialist has a narrow focus. Reviewers give PASS / CONDITIONAL / BLOCK verdicts and write reports to real files — not chat messages.</p>
 
   <div class="agents-grid">
     <div class="agent-card reveal">
       <span class="agent-model model-opus">Opus</span>
       <h3>ai-ui-designer</h3>
-      <p>Full AI component design from spec to token-compliant implementation. Writes <code style="font-size:.75rem">design/specs/</code> and <code style="font-size:.75rem">design/ai-states/</code> before any code. Refuses to hardcode any value.</p>
+      <p>Plans and builds every AI component from written spec to working code. Writes the spec and state maps before any code. Never hardcodes a colour, size, or spacing value.</p>
     </div>
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
       <h3>ux-critic</h3>
-      <p>Audits against all 5 skill areas. Writes the critique to <code style="font-size:.75rem">design/reviews/&lt;feature&gt;/</code>. Overall verdict: PASS / CONDITIONAL / BLOCK — not "looks good."</p>
+      <p>Reviews every AI feature against all 5 rules. Writes the report to a real file. Verdict: pass, fix these things, or blocked — never 'looks good.'</p>
     </div>
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
       <h3>state-designer</h3>
-      <p>Maps all 7 states with real copy, real transitions, and 3 edge cases before a single component is designed. Writes to <code style="font-size:.75rem">design/ai-states/&lt;feature&gt;.md</code>.</p>
+      <p>Writes exactly what the user sees in all 7 visual states — the words, the transitions, and 3 edge cases — before any component is built.</p>
     </div>
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
       <h3>prompt-ux-designer</h3>
-      <p>Chooses the input pattern, designs the suggestion system, maps the 6-state feedback loop, and defines constraints. Never uses Enter-to-send for multi-line input.</p>
+      <p>Designs the input area: how it grows, what suggestions appear, how the visual state changes from idle to sending to receiving to done. Never just a fixed-height text box.</p>
     </div>
     <div class="agent-card reveal">
       <span class="agent-model model-sonnet">Sonnet</span>
       <h3>accessibility-reviewer</h3>
-      <p>Reviews ARIA, keyboard, contrast, and cognitive load. Writes the report to <code style="font-size:.75rem">design/reviews/&lt;feature&gt;/</code>. Will not approve streaming output without <code style="font-size:.75rem">role="log" aria-live="polite"</code>.</p>
+      <p>Reviews screen reader support, keyboard navigation, colour contrast, and readability. Writes the report to file. Will not approve streaming output without proper screen reader announcements.</p>
     </div>
   </div>
 </section>
