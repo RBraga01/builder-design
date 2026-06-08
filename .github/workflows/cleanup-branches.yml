@@ -19,8 +19,8 @@ jobs:
       - name: Delete merged branches
         run: |
           git fetch --prune
-          MERGED=$(git branch -r --merged origin/main \
-            | grep -v 'origin/main' \
+          MERGED=$(git branch -r --merged origin/master \
+            | grep -v 'origin/master' \
             | grep -v 'origin/HEAD' \
             | sed 's|origin/||')
           if [ -z "$MERGED" ]; then

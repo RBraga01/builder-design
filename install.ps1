@@ -20,6 +20,7 @@ if (-not (Test-Path $Destination)) {
     Write-Fail "Destination directory '$Destination' does not exist."
 }
 
+$Destination = (Resolve-Path $Destination).Path
 Write-Info "Installing builder-design into $Destination"
 
 $Tmp = Join-Path $env:TEMP "builder-design-install-$(Get-Random)"

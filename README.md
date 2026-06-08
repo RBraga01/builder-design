@@ -74,12 +74,12 @@ Edge cases:
 
 ### macOS / Linux
 ```bash
-curl -fsSL https://raw.githubusercontent.com/RBraga01/builder-design/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/RBraga01/builder-design/master/install.sh | bash
 ```
 
 ### Windows (PowerShell)
 ```powershell
-irm https://raw.githubusercontent.com/RBraga01/builder-design/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/RBraga01/builder-design/master/install.ps1 | iex
 ```
 
 ### Manual

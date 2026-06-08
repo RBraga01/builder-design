@@ -17,7 +17,7 @@ error() { echo -e "${RED}[builder-design]${NC} $1" >&2; exit 1; }
 # Preflight checks
 command -v git >/dev/null 2>&1 || error "git is required but not installed."
 
-DEST="${1:-.}"
+DEST="$(cd "${1:-.}" && pwd)"
 [[ -d "$DEST" ]] || error "Destination directory '$DEST' does not exist."
 
 info "Installing builder-design into $DEST"
