@@ -1,0 +1,45 @@
+{
+  "name": "builder-design",
+  "version": "1.0.0",
+  "description": "AI UI design quality enforcement: 8 skills and 5 agents that enforce design quality for AI feature UIs. Covers AI states, design-before-code, accessible AI output, AI component patterns, onboarding design, design token audit, and prompt UX.",
+  "author": {
+    "name": "RBraga01",
+    "url": "https://github.com/RBraga01"
+  },
+  "homepage": "https://github.com/RBraga01/builder-design",
+  "repository": "https://github.com/RBraga01/builder-design",
+  "license": "MIT",
+  "websiteURL": "https://github.com/RBraga01/builder-design",
+  "privacyPolicyURL": "https://github.com/RBraga01/builder-design/blob/main/SECURITY.md",
+  "termsOfServiceURL": "https://github.com/RBraga01/builder-design/blob/main/LICENSE",
+  "keywords": [
+    "ui-design",
+    "accessibility",
+    "design-tokens",
+    "ai-states",
+    "prompt-ux",
+    "codex",
+    "builder"
+  ],
+  "interface": {
+    "displayName": "Builder: Design",
+    "shortDescription": "8 skills and 5 agents for UI design teams.",
+    "longDescription": "AI UI design quality enforcement: 8 skills and 5 agents that enforce design quality for AI feature UIs. Covers AI states, design-before-code, accessible AI output, AI component patterns, onboarding design, design token audit, and prompt UX.",
+    "developerName": "RBraga01",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Run /design-before-code before implementing any UI.",
+      "Use ai-states-required to check if all AI states are handled."
+    ],
+    "websiteURL": "https://github.com/RBraga01/builder-design",
+    "privacyPolicyURL": "https://github.com/RBraga01/builder-design/blob/main/SECURITY.md",
+    "termsOfServiceURL": "https://github.com/RBraga01/builder-design/blob/main/LICENSE",
+    "brandColor": "#ec4899",
+    "screenshots": []
+  }
+}
