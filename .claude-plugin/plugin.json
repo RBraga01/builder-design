@@ -1,0 +1,21 @@
+{
+  "name": "builder-design",
+  "description": "AI UI design quality enforcement: 8 skills and 5 agents for UI design teams",
+  "version": "1.0.0",
+  "author": {
+    "name": "RBraga01",
+    "url": "https://github.com/RBraga01"
+  },
+  "homepage": "https://github.com/RBraga01/builder-design",
+  "repository": "https://github.com/RBraga01/builder-design",
+  "license": "MIT",
+  "keywords": [
+    "ui-design",
+    "accessibility",
+    "design-tokens",
+    "ai-states",
+    "prompt-ux",
+    "claude-code",
+    "builder"
+  ]
+}
