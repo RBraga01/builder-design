@@ -100,7 +100,7 @@ builder-design is independent. Use it with any Claude project:
 cp -r skills/ .claude/agents/ your-project/
 
 # With A Team
-# Installs alongside A Team's 25 agents and 18 workflow skills
+# Installs alongside A Team's 26 agents and 19 workflow skills
 ```
 
 Works alongside [A Team](https://github.com/RBraga01/a-team), [builder-ai](https://github.com/RBraga01/builder-ai), [builder-product](https://github.com/RBraga01/builder-product), and [builder-growth](https://github.com/RBraga01/builder-growth). Each pack is independent — use one, some, or all.
